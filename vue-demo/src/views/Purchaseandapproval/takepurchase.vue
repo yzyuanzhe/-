@@ -17,43 +17,43 @@
                
                  <el-col :span="3">
                       <div class="leftimg">
-                        <img src="../../assets/QQ图片20180809181353.png" alt="">
+                        <img src="@/assets/QQ图片20180809181353.png" alt="">
                       </div>
                  </el-col>
                  <div style="margin-top:16px;">
                    <el-col :span="2"><div class="one box">经办人拟制合同</div></el-col>
                    <el-col :span="1" fl>
                        <div class="arrow">
-                        <img src="../assets/left.png" alt="">
-                        <img src="../assets/right.png" alt="">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
                        </div>
                        </el-col>
                    <el-col :span="2"><div class="two box">经费负责人审批</div></el-col>
                    <el-col :span="1">
                         <div class="arrow">
-                        <img src="../assets/left.png" alt="">
-                        <img src="../assets/right.png" alt="">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
                        </div>
                    </el-col>
                    <el-col :span="2"><div class="three box">招标中心初审</div></el-col>
                    <el-col :span="1">
                         <div class="arrow">
-                        <img src="../assets/left.png" alt="">
-                        <img src="../assets/right.png" alt="">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
                        </div>
                    </el-col>
                    <el-col :span="2"><div class="four box">法务审核</div></el-col>
                    <el-col :span="1">
                         <div class="arrow">
-                        <img src="../assets/left.png" alt="">
-                        <img src="../assets/right.png" alt="">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
                        </div>
                    </el-col>
                    <el-col :span="2"><div class="five box">招标中心复审</div></el-col>
                    <el-col :span="1">
                         <div class="arrow">
-                        <img src="../assets/left.png" alt="">
-                        <img src="../assets/right.png" alt="">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
                        </div>
                    </el-col>
                    <el-col :span="2"><div class="six box">生成合同</div></el-col>    

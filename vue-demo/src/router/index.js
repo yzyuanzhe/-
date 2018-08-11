@@ -6,9 +6,9 @@ import Check from '@/views/check.vue'
 import Homepage from '@/views/homepage.vue'
 import Result from '@/views/takeresult/result.vue'
 import Purchase from '@/views/purchaseandapproval/purchase.vue'
-// import TakePurchase from '@/views/purchaseandapproval/takepurchase.vue'
+import TakepurChase from '@/views/Purchaseandapproval/takepurchase.vue'
 import Proxy from '@/views/Proxyselection/proxy.vue'
-import Confirmation from '@views/Confirmationoftendering/confirmation.vue'
+// import Confirmation from '@views/Confirmationoftendering/confirmation.vue'
 
 
 
@@ -45,7 +45,7 @@ export default new Router({
             {
               name:'purchase',
               path:'/purchase',
-              component:Purchase
+              component:Purchase,
             },
             {
               name:'proxy',
@@ -53,13 +53,20 @@ export default new Router({
               component:Proxy
             },
             {
-              name:'confirmation',
-              path:'/confirmation',
-              component:Confirmation
+              name: 'takepurchase',
+              path: '/takepurchase',
+              component: TakepurChase
             }
             
+            // {
+            //   name:'confirmation',
+            //   path:'/confirmation',
+            //   component:Confirmation
+            // }
+            
           ]
-        }
+        },
+        
       ]
     })
    

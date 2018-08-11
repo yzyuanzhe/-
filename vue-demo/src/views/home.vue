@@ -49,7 +49,9 @@
             :default-active="$route.path" 
             :router="true"
             :unique-opened="true"
-            class="menu">
+            class="menu"
+            :default-openeds="openeds"
+            >
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -74,15 +76,17 @@
             <span>供应商管理</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="2-1">资质审查</el-menu-item>
-            <el-menu-item index="2-2">供应商库</el-menu-item>
+          <el-menu-item index="2-1">资质审查</el-menu-item>
+          <el-menu-item index="2-2">供应商库</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       
       </el-menu>
     </el-aside>
     <!-- 内容区域 -->
+     <el-main>
        <router-view> </router-view>
+     </el-main>
        
   </el-container>
 </el-container>
@@ -90,61 +94,65 @@
 </template>
 
 <script>
-  export default {
-    data(){
-      return {
-          tableData: [{
-            num: 1,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 2,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 3,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 4,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 5,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 6,
-            take: '查看',
-            name: '服务器设备采购'
-          }
-        
-          ]
-    }
-    }
+export default {
+  data() {
+    return {
+      tableData: [
+        {
+          num: 1,
+          take: "查看",
+          name: "服务器设备采购"
+        },
+        {
+          num: 2,
+          take: "查看",
+          name: "服务器设备采购"
+        },
+        {
+          num: 3,
+          take: "查看",
+          name: "服务器设备采购"
+        },
+        {
+          num: 4,
+          take: "查看",
+          name: "服务器设备采购"
+        },
+        {
+          num: 5,
+          take: "查看",
+          name: "服务器设备采购"
+        },
+        {
+          num: 6,
+          take: "查看",
+          name: "服务器设备采购"
+        }
+      ],
+      openeds: ["1", "2"]
+    };
   }
+};
 </script>
 
 <style>
-body{
+body {
   margin: 0;
   padding: 0;
 }
 .container {
   height: 100%;
 }
+.el-menu {
+  border-right: 0px;
+}
 .header {
-  background-color: #1E88E5;
+  background-color: #1e88e5;
   padding: 0;
   color: #fff;
 }
-.titleimg img{
- height: 30px;
+.titleimg img {
+  height: 30px;
 }
 
 .header .users {
@@ -152,18 +160,15 @@ body{
   font-size: 18px;
   line-height: 60px;
   text-decoration: none;
- 
-
 }
 .aside {
   background-color: #d3dce6;
-   height: 100%;
-
+  height: 100%;
 }
 .aside .menu {
   height: 100%;
 }
-.tleftimg img{
+.tleftimg img {
   height: 100%;
   margin-top: 8px;
   margin-left: 8px;
@@ -171,7 +176,7 @@ body{
 .fl {
   float: left;
 }
-.fr{
+.fr {
   float: right;
 }
 .toptitle {
@@ -184,22 +189,22 @@ body{
   width: 24px;
   height: 24px;
 }
-.toptitle h3{
+.toptitle h3 {
   font-size: 18px;
   font-weight: 400px;
   margin: 0;
 }
-.rightimg img{
+.rightimg img {
   width: 24px;
   height: 24px;
- margin-top: 20px;
+  margin-top: 20px;
 }
 .main {
   background-color: #e9eef3;
   height: 100%;
-    position: relative;
+  position: relative;
 }
-.box-card1{
+.box-card1 {
   background-color: #fff;
   height: 50px;
   font-size: 16px;
@@ -210,29 +215,27 @@ body{
   height: 30px;
   height: 50px;
   padding: 0;
- 
 }
 .el-breadcrumb__item {
-    line-height: 50px;
-    padding-left: 20px;
+  line-height: 50px;
+  padding-left: 20px;
 }
-.Purchase{
+.Purchase {
   width: 100%;
   height: 120px;
   margin-top: 50px;
 }
-.fromlist{
+.fromlist {
   height: 450px;
   margin-top: 20px;
 }
-.button3{
+.button3 {
   height: 50px;
   border-bottom: 2px dashed #ccc;
 }
 .fromlist1 {
- width: 100%;
- margin-top:10px;
+  width: 100%;
+  margin-top: 10px;
 }
-
 </style>
 

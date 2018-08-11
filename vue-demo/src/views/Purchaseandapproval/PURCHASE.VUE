@@ -112,6 +112,9 @@
             prop="take"
             label="操作"
           >
+          <template slot-scope="scope">
+            <a href="#" @click="takepurchase">查看</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
@@ -198,6 +201,11 @@
         
           ]
     }
+    },
+    methods: {
+      takepurchase() {
+        this.$router.push({path: '/takepurchase'})
+      }
     }
   }
 </script>

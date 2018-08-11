@@ -106,6 +106,10 @@
             prop="take"
             label="操作"
           >
+          
+          <template slot-scope="scope">
+            <a href="#">查看</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
@@ -161,7 +165,6 @@
       return {
           tableData: [{
             num: 1,
-            take: '查看',
             name: '服务器设备采购'
           },
           {
@@ -192,6 +195,9 @@
         
           ]
     }
+    },
+    methods: {
+      
     }
   }
 </script>

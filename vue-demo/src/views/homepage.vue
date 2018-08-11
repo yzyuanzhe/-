@@ -76,7 +76,9 @@
         <el-row>
           <el-col :span="24">
         <div class="button3">
-            <el-button type="primary">新增</el-button>
+            <el-button type="primary" @click="handeladd">新增
+              <router-view></router-view>
+            </el-button>
             <el-button type="danger">删除</el-button>
             <el-button type="primary">导出列表数据</el-button>
         </div>
@@ -191,8 +193,14 @@
             name: '服务器设备采购'
           }
         
-          ]
+          ],
+          
     }
+    },
+    methods: {
+      handeladd() {
+        this.$router.push({ path: '/apply'})
+      }
     }
   }
 </script>
