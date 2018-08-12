@@ -1,5 +1,5 @@
 <template>
-      <el-main class="main" >
+      <div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
@@ -89,6 +89,9 @@
             prop="take"
             label="操作"
           >
+             <template slot-scope="scope">
+            <a href="#" @click="takepurchase" style="color: rgb(30, 136, 229);">查看</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
@@ -136,7 +139,7 @@
       </el-row>
       </el-card>
 
-    </el-main>
+   </div>
 </template>
 <script>
      export default {

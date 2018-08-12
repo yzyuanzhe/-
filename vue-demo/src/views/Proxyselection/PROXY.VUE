@@ -1,5 +1,5 @@
 <template>
-      <el-main class="main" >
+<div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
@@ -108,7 +108,7 @@
           >
           
           <template slot-scope="scope">
-            <a href="#">查看</a>
+            <a href="#" style="color:#1E88E5"  @click="takeproxy">查看并审批</a>
           </template>
           </el-table-column>
           <el-table-column
@@ -157,7 +157,7 @@
       </el-row>
       </el-card>
 
-    </el-main>
+   </div>
 </template>
 <script>
      export default {
@@ -197,7 +197,9 @@
     }
     },
     methods: {
-      
+      takeproxy (){
+         this.$router.push({path: '/takeproxy'})
+      }
     }
   }
 </script>

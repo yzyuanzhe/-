@@ -1,6 +1,53 @@
-html,
+
+/*css初始化*/
+body,h1,h2,h3,h4,h5,h6,ul,dl,dt,dd,p,input {
+	margin: 0;
+	padding: 0;
+}
 body {
+	font: 14px "Microsoft Yahei";
   height: 100%;
-  margin: 0;
-  padding: 0;
+  
+	color: #666;
+}
+input {
+	border: 0 none;
+	outline: none;
+}
+/*版心*/
+img {
+	vertical-align: middle;
+	border: 0 none;
+}
+a {
+	text-decoration: none;
+	color: #050505;
+}
+/* a:hover {
+	color: #00b4ff;
+} */
+h1,h2,h3,h4,h5,h6 {
+	font-weight: 400;
+}
+li {
+	list-style: none;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+i,em {
+	font-style: normal;
 }

@@ -1,5 +1,5 @@
 <template>
-    <el-main class="main" >
+ <div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
@@ -338,7 +338,7 @@
 
 
    
-        </el-main>
+       </div>
 </template>
 <script>
     export default {

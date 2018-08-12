@@ -1,11 +1,11 @@
 <template>
-      <el-main class="main" >
+     <div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>代理机构抽选</el-breadcrumb-item>
+              <el-breadcrumb-item>采购计划申请</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 
@@ -24,7 +24,7 @@
                 </el-select>
               </el-col>
                 <el-col :span="8"> 
-                经费类型：
+                经典类型：
                 <el-select v-model="value4" clearable >
                   <el-option
                     v-for="item in options"
@@ -64,7 +64,14 @@
               </el-col>
                 <el-col :span="8"> 
                 采购名称：
-              <el-input style="width:217px;"></el-input>
+                <el-select v-model="value4" clearable placeholder="暂存">
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value">
+                  </el-option>
+                </el-select>
               </el-col>
          
             <el-col :span="8" class="fr">
@@ -80,7 +87,6 @@
         <el-row>
           <el-col :span="24">
         <div class="button3">
-            <el-button type="primary">抽选代理机构</el-button>
             <el-button type="primary">导出列表数据</el-button>
         </div>
         </el-col>
@@ -106,13 +112,12 @@
             prop="take"
             label="操作"
           >
+          <template slot-scope="scope">
+            <a href="#" @click="takeconfirmation" style="color: rgb(30, 136, 229);">查看</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
-            label="采购类型">
-          </el-table-column>
-              <el-table-column
-            prop="address"
             label="采购名称">
           </el-table-column>
               <el-table-column
@@ -121,11 +126,15 @@
           </el-table-column>
               <el-table-column
             prop="address"
-            label="采购用途">
+            label="采购类型">
           </el-table-column>
               <el-table-column
             prop="address"
             label="经费类型">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="采购方式">
           </el-table-column>
               <el-table-column
             prop="address"
@@ -153,7 +162,7 @@
       </el-row>
       </el-card>
 
-    </el-main>
+   </div>
 </template>
 <script>
      export default {
@@ -161,6 +170,21 @@
       return {
           tableData: [{
             num: 1,
+            take: '查看',
+            name: '服务器设备采购'
+          },
+          {
+            num: 2,
+            take: '查看',
+            name: '服务器设备采购'
+          },
+          {
+            num: 3,
+            take: '查看',
+            name: '服务器设备采购'
+          },
+          {
+            num: 4,
             take: '查看',
             name: '服务器设备采购'
           },
@@ -177,6 +201,11 @@
         
           ]
     }
+    },
+    methods: {
+      takeconfirmation() {
+        this.$router.push({path: '/takeconfirmation'})
+      }
     }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-      <el-main class="main" >
+<div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
@@ -76,7 +76,7 @@
         <el-row>
           <el-col :span="24">
         <div class="button3">
-            <el-button type="primary" @click="handeladd">新增
+            <el-button type="primary" @click="takeapply">新增
               <router-view></router-view>
             </el-button>
             <el-button type="danger">删除</el-button>
@@ -105,6 +105,10 @@
             prop="take"
             label="操作"
           >
+             <template slot-scope="scope" style="padding: 0 1%;">
+            <a href="#" @click="takeapply" style="color: rgb(30, 136, 229);">查看</a>
+            <a href="#" @click="takeapply" style="color:#009F44;float:right;">修改</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
@@ -155,8 +159,7 @@
         </el-col>
       </el-row>
       </el-card>
-
-    </el-main>
+</div>
 </template>
 <script>
      export default {
@@ -198,20 +201,14 @@
     }
     },
     methods: {
-      handeladd() {
+      takeapply() {
         this.$router.push({ path: '/apply'})
       }
     }
   }
 </script>
 <style>
-body{
-  margin: 0;
-  padding: 0;
-}
-.container {
-  height: 100%;
-}
+
 .aside .menu {
   height: 100%;
 }

@@ -1,5 +1,5 @@
 <template>
-    <el-main class="main" >
+    <div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
@@ -140,7 +140,7 @@
                   <el-col :span="12">经费代码：
                      <el-input v-model="input"  class="w4"></el-input>
                   </el-col>
-                    <el-col :span="12" style="margin-left: -98px;">建构依托建设项目名称：
+                    <el-col :span="12" style="margin-left: -83px;">建构依托建设项目名称：
                      <el-input v-model="input"  class="w4"></el-input>
                   </el-col>
               </el-row>
@@ -338,7 +338,7 @@
 
 
    
-        </el-main>
+       </div>
 </template>
 <script>
     export default {

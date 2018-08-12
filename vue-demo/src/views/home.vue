@@ -84,7 +84,7 @@
       </el-menu>
     </el-aside>
     <!-- 内容区域 -->
-     <el-main>
+     <el-main class="main">
        <router-view> </router-view>
      </el-main>
        
@@ -200,7 +200,7 @@ body {
   margin-top: 20px;
 }
 .main {
-  background-color: #e9eef3;
+  background-color: #F7F8FA;
   height: 100%;
   position: relative;
 }

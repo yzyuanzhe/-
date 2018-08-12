@@ -5,61 +5,21 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>采购计划申请</el-breadcrumb-item>
-              <el-breadcrumb-item>货物（服务）新增</el-breadcrumb-item>
+              <el-breadcrumb-item>确认招标任务</el-breadcrumb-item>
+              <el-breadcrumb-item>受领招标任务</el-breadcrumb-item>
 
             </el-breadcrumb>
             </div>
     <el-card style="margin-top:50px;padding:26px;padding-top: 0;">
         <el-row>
           <el-col class="h4border">
-           <h4>新增信息</h4>
+           <h4>审编信息</h4>
           </el-col>
     </el-row>
 
-    <el-row class="textcenter">
-        <h4>本次采购如包含政府集中采购目录内产品，则报送中央政府采购中心从其要求执行采购;添加财政部连接功能，显示目录</h4>
-    </el-row>
 <div class="takem">
     <el-row>
-        <el-col :span="12">申请单位：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12">申请类型：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-      <el-row>
-        <el-col :span="12">采购名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12">采购类型：
-             <el-radio v-model="radio" label="1">进口货物</el-radio>
-             <el-radio v-model="radio" label="2">备国产货物</el-radio>
-        </el-col>
-    </el-row>
-    <el-row>
-        <el-col>
-             <el-col :span="12">采购用途：<el-radio v-model="radio" label="1">教学</el-radio>
-                 <el-radio v-model="radio" label="2">科研</el-radio>
-                 <el-radio v-model="radio" label="3">保障运行</el-radio>
-                 <el-radio v-model="radio" label="4">其他</el-radio>
-             </el-col>
-             <el-col :span="12">申请单位：<el-input v-model="input" style="width:40%;"></el-input> 万元</el-col>
-        </el-col>
-    </el-row>
-    
-     <el-row>
-        <el-col :span="12" style="padding-left: 15px;">使用人：<el-input v-model="input" style="width:41%;"></el-input></el-col>
-        <el-col :span="12">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-
-    <el-row>
-        <el-col :span="12" style="margin-left:-17px;">经费负责人：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12"  style="margin-left:17px;">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-
-    <el-row>
-        <el-col :span="12">经费代码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12" style="margin-left:-97px;">采购依托建设项目名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-
-    <el-row style="margin-top:10px;">
-        <el-col :span="12">执行机构：<el-select v-model="value" placeholder="中央政府采购中心">
+          <el-col :span="12">确认状态：<el-select v-model="value" placeholder="同意受理">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -68,7 +28,71 @@
                 </el-option>
             </el-select>
         </el-col>
+    </el-row>
+            <el-row>
+                意见反馈：<el-input
+                    type="textarea"
+                    :autosize="{ minRows: 3, maxRows: auto}"
+                    placeholder="请输入内容"
+                    v-model="textarea2"
+                   >
+                    </el-input>
+            </el-row>
+      <el-row>
+        <el-col :span="12">申请单位：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+        <el-col :span="12">申请日期：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="12">采购名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+             <el-col :span="12">采购类型：
+                 <el-select v-model="value" placeholder="同意受理">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+                 <el-radio v-model="radio" label="1">进口货物</el-radio>
+                 <el-radio v-model="radio" label="2">国产货物</el-radio>
+             </el-col>
+    </el-row>
+    
+     <el-row>
+       <el-col :span="12">采购用途：
+             <el-radio v-model="radio" label="1">教学</el-radio>
+             <el-radio v-model="radio" label="2">科研</el-radio>
+             <el-radio v-model="radio" label="3">保障运行</el-radio>
+             <el-radio v-model="radio" label="4">其他</el-radio>
+       </el-col>
+       <el-col :span="12">采购预算：<el-input v-model="input" style="width:40%;"></el-input>  万元</el-col>
+    </el-row>
+
+    <el-row>
+        <el-col :span="12" style="padding-left: 12px;">经办人：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+        <el-col :span="12">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+    </el-row>
+    <el-row>
+        <el-col :span="12" style="margin-left:-17px;">经费负责人：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+        <el-col :span="12"  style="margin-left:17px;">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+    </el-row>
+
+    <el-row>
+        <el-col :span="12">经费代码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+        <el-col :span="12" style="margin-left:-83px;">采购依托建设项目名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
+    </el-row>
+
+    <el-row style="margin-top:10px;">
         <el-col :span="12">经费类型：<el-select v-model="value" placeholder="科研经费">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
+        </el-col>
+        <el-col :span="12">采购方式：<el-select v-model="value" placeholder="公开招标">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -80,7 +104,7 @@
     </el-row>
    
     <el-row>
-        <el-col :span="12">采购方式：<el-select v-model="value" placeholder="比选">
+        <el-col :span="12">组织形式：<el-select v-model="value" placeholder="集中采购">
                 <el-option
                 v-for="item in options"
                 :key="item.value"
@@ -89,18 +113,27 @@
                 </el-option>
             </el-select>
         </el-col>
-        <el-col :span="12" style="margin-left: -32px;">需求技术指标：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button>
+        <el-col :span="12">执行机构：<el-select v-model="value" placeholder="招标代理机构">
+                <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+                </el-option>
+            </el-select>
         </el-col>
+        
     </el-row>
 
 
     <el-row>
+        <el-col :span="12">需求来源论证附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button></el-col>
         <el-col :span="12">单一来源论证附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button></el-col>
-        <el-col :span="12">其他附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button></el-col>
     </el-row>
+    <el-col style="margin:20px;padding-left: 65px;">其他附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button> </el-col>
 
-       <el-row>
-                采购方式理由：<el-input
+    <el-row>
+                采购方式：<el-input
                     type="textarea"
                     :autosize="{ minRows: 3, maxRows: auto}"
                     placeholder="请输入内容"
@@ -108,6 +141,7 @@
                    >
                     </el-input>
             </el-row>
+  
 </div>
 
     </el-card>
@@ -123,10 +157,11 @@
 
             <!-- 按钮 -->
             <el-row style="margin-top:20px;">
-                  <el-button type="primary">手工输入非计划产品清单</el-button>
-                    <el-button type="primary">导入产品清单</el-button>
-                      <el-button type="primary">模板下载</el-button>
+                  <el-button type="primary">计划选择产品清单</el-button>
+                    <el-button type="primary">手工输入非计划产品清单</el-button>
+                      <el-button type="primary">导入产品清单</el-button>
                        <el-button type="danger">删除</el-button>
+                       合计：0 元
                       
             </el-row>
 
@@ -149,6 +184,9 @@
             prop="take"
             label="操作"
           >
+             <template slot-scope="scope">
+            <a href="#" @click="takepurchase" style="color:#009F44;">编辑</a>
+          </template>
           </el-table-column>
           <el-table-column
             prop="name"
@@ -189,8 +227,9 @@
         </el-table>
         <el-row>
             <el-col style="margin-top:20px;">
-                 <el-button type="primary">提交</el-button>
-                       <el-button type="danger">取消</el-button>
+                 <el-button type="primary">同意</el-button>
+                 <el-button type="warning">拒绝</el-button>
+                 <el-button type="danger">取消</el-button>
             </el-col>
         </el-row>
         </el-card>
