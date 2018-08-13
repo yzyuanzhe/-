@@ -54,17 +54,17 @@
             >
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>招投标管理</span>
+           <img src="@/assets/caigoushenqing.png" alt="">
+            <span style="margin-right:10px;">招投标管理</span>
           </template>
-          <el-menu-item-group>
+          <el-menu-item-group style="font-size:18px;">
             <el-menu-item index="/homepage">采购计划申请</el-menu-item>
             <el-menu-item index="/purchase">采购计划审批</el-menu-item>
             <el-menu-item index="/proxy">代理机构抽选</el-menu-item>
             <el-menu-item index="/confirmation">确认招标任务</el-menu-item>
-            <el-menu-item index="1-5">招标文件申报</el-menu-item>
-            <el-menu-item index="1-6">招标文件审核</el-menu-item>
-            <el-menu-item index="1-7">上传招标结果</el-menu-item>
+            <el-menu-item index="/biddingdocuments">招标文件申报</el-menu-item>
+            <el-menu-item index="/documentaudit">招标文件审核</el-menu-item>
+            <el-menu-item index="/uploadresults">上传招标结果</el-menu-item>
             <el-menu-item index="/result">招标结果定标</el-menu-item>
             <el-menu-item index="1-9">定标结果审核</el-menu-item>
             <el-menu-item index="1-10">上传中标通知书</el-menu-item>
@@ -72,8 +72,8 @@
         </el-submenu>
               <el-submenu index="2">
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>供应商管理</span>
+           <img src="@/assets/gongyingshangguanli.png" alt="">
+            <span style="padding-right:8px;">供应商管理</span>
           </template>
           <el-menu-item-group>
           <el-menu-item index="2-1">资质审查</el-menu-item>
@@ -140,6 +140,13 @@ body {
   margin: 0;
   padding: 0;
 }
+/* 导航栏 */
+.el-submenu .el-menu-item {
+  font-size: 17px;
+}
+.el-submenu__title {
+   font-size: 18px;
+}
 .container {
   height: 100%;
 }
@@ -167,6 +174,7 @@ body {
 }
 .aside .menu {
   height: 100%;
+  padding-left: 20px;
 }
 .tleftimg img {
   height: 100%;

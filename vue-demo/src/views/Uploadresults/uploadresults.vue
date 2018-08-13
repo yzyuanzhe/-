@@ -1,66 +1,67 @@
 <template>
-      <div>
+<div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>采购计划申请</el-breadcrumb-item>
+              <el-breadcrumb-item>上传招标结果</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 
           
- <el-card shadow="never" class="Purchase" style="height:100%;">
-                      <el-form ref="form" :model="form" label-width="80px">
-                <el-row>
-                    <el-col :span="8">
-                      <el-form-item label="采购类型">
-                          <el-select v-model="form.take1">
-                          <el-option label="类型一" value="shanghai"></el-option>
-                          <el-option label="类型二" value="beijing"></el-option>
-                          </el-select>
-                      </el-form-item>
-                  </el-col>
-                    <el-col :span="8">
-                      <el-form-item label="经费类型">
-                          <el-select v-model="form.take2">
-                          <el-option label="类型一" value="shanghai"></el-option>
-                          <el-option label="类型二" value="beijing"></el-option>
-                          </el-select>
-                      </el-form-item>
-                  </el-col>
-                    <el-col :span="8">
-                      <el-form-item label="采购方式">
-                          <el-select v-model="form.take3">
-                          <el-option label="类型一" value="shanghai"></el-option>
-                          <el-option label="类型二" value="beijing"></el-option>
-                          </el-select>
-                      </el-form-item>
-                  </el-col>
-          </el-row>
-            <el-row>
-                <el-col :span="8">
-                        <el-form-item label="状态">
-                          <el-select v-model="form.take4">
-                          <el-option label="类型一" value="shanghai"></el-option>
-                          <el-option label="类型二" value="beijing"></el-option>
-                          </el-select>
-                      </el-form-item>
-                </el-col>
+          <el-card shadow="never" class="Purchase" style="height:100%;">
+               <el-form ref="form" :model="form" label-width="80px">
+          <el-row>
               <el-col :span="8">
+                <el-form-item label="采购类型">
+                    <el-select v-model="form.take1">
+                    <el-option label="类型一" value="shanghai"></el-option>
+                    <el-option label="类型二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+              <el-col :span="8">
+                <el-form-item label="经费类型">
+                    <el-select v-model="form.take2">
+                    <el-option label="类型一" value="shanghai"></el-option>
+                    <el-option label="类型二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+              <el-col :span="8">
+                <el-form-item label="状态">
+                    <el-select v-model="form.take3">
+                    <el-option label="类型一" value="shanghai"></el-option>
+                    <el-option label="类型二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+            </el-col>
+     </el-row>
+       <el-row>
+           <el-col :span="8">
                   <el-form-item label="采购名称">
-                      <el-input v-model="form.name" style="width: 49%;"></el-input>
-                  </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                  <el-form-item>
-                      <el-button type="primary"  >查询</el-button>
-                      <el-button type="success">重置</el-button>
-                  </el-form-item>
-                  </el-col>
-                  </el-row>
-                  </el-form>
-     </el-card>
+                    <el-select v-model="form.take4">
+                    <el-option label="类型一" value="shanghai"></el-option>
+                    <el-option label="类型二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+           </el-col>
+         <el-col :span="8">
+            <el-form-item label="采购名称">
+                <el-input v-model="form.name" style="width: 49%;"></el-input>
+            </el-form-item>
+         </el-col>
+         <el-col :span="4">
+            <el-form-item>
+                <el-button type="primary"  >查询</el-button>
+                <el-button type="success">重置</el-button>
+            </el-form-item>
+            </el-col>
+            </el-row>
+            </el-form>
+                        
+          </el-card>
         
 
 
@@ -68,6 +69,7 @@
         <el-row>
           <el-col :span="24">
         <div class="button3">
+            <el-button type="primary">上报结果</el-button>
             <el-button type="primary">导出列表数据</el-button>
         </div>
         </el-col>
@@ -93,29 +95,34 @@
             prop="take"
             label="操作"
           >
-          <template slot-scope="scope">
-            <a href="#" @click="takepurchase" style="color: rgb(30, 136, 229);">查看并审批</a>
+             <template slot-scope="scope" style="padding: 0 1%;">
+            <a href="#" @click="takedeclare" style="color: rgb(30, 136, 229);">查看</a>
           </template>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="采购类型">
           </el-table-column>
           <el-table-column
             prop="name"
             label="采购名称">
           </el-table-column>
+
               <el-table-column
             prop="address"
-            label="采购预算（元）">
+            label="中标单位">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="采购类型">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="经费类型">
+            label="中标金额(元)">
           </el-table-column>
               <el-table-column
             prop="address"
             label="采购方式">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="经费类型">
           </el-table-column>
               <el-table-column
             prop="address"
@@ -142,43 +149,42 @@
         </el-col>
       </el-row>
       </el-card>
-
-    </div>
+</div>
 </template>
 <script>
      export default {
     data(){
       return {
           tableData: [{
-            num: 1,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 2,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 3,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 4,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 5,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 6,
-            take: '查看',
-            name: '服务器设备采购'
-          }
+                num: 1,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 2,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 3,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 4,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 5,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 6,
+                take: '查看',
+                name: '服务器设备采购'
+            }
         
           ],
            form: {
@@ -189,23 +195,18 @@
           take4: '',
           name:''
         }
+          
     }
     },
     methods: {
-      takepurchase() {
-        this.$router.push({path: '/takepurchase'})
+      takedeclare() {
+        this.$router.push({ path: '/takedeclare'})
       }
     }
   }
 </script>
 <style>
-body{
-  margin: 0;
-  padding: 0;
-}
-.container {
-  height: 100%;
-}
+
 .aside .menu {
   height: 100%;
 }

@@ -10,76 +10,57 @@
             </div>
 
           
-          <el-card shadow="never" class="Purchase">
-            <el-row>
-              <el-col :span="8"> 
-                采购类型：
-                <el-select v-model="value4" clearable >
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-col>
-                <el-col :span="8"> 
-                经典类型：
-                <el-select v-model="value4" clearable >
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-col>
-                <el-col :span="8"> 
-                采购方式：
-                <el-select v-model="value4" clearable >
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-col>
-
-            </el-row>
-          <el-row style="margin-top:10px;">
-        
-          
-          
-                <el-col :span="8" style="padding-left: 32px;"> 
-                状态：
-                <el-select v-model="value4" clearable placeholder="暂存">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-col>
-                <el-col :span="8"> 
-                采购名称：
-                <el-select v-model="value4" clearable placeholder="暂存">
-                  <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                  </el-option>
-                </el-select>
-              </el-col>
-         
-            <el-col :span="8" class="fr">
-            <el-button type="primary">查询</el-button>
-            <el-button type="success">重置</el-button>
-            </el-col>
+       <el-card shadow="never" class="Purchase" style="height:100%;">
+                      <el-form ref="form" :model="form" label-width="80px">
+                <el-row>
+                    <el-col :span="8">
+                      <el-form-item label="采购类型">
+                          <el-select v-model="form.take1">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
+                  </el-col>
+                    <el-col :span="8">
+                      <el-form-item label="经费类型">
+                          <el-select v-model="form.take2">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
+                  </el-col>
+                    <el-col :span="8">
+                      <el-form-item label="采购方式">
+                          <el-select v-model="form.take3">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
+                  </el-col>
           </el-row>
-          </el-card>
+            <el-row>
+                <el-col :span="8">
+                        <el-form-item label="状态">
+                          <el-select v-model="form.take4">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
+                </el-col>
+              <el-col :span="8">
+                  <el-form-item label="采购名称">
+                      <el-input v-model="form.name" style="width: 49%;"></el-input>
+                  </el-form-item>
+              </el-col>
+              <el-col :span="4">
+                  <el-form-item>
+                      <el-button type="primary"  >查询</el-button>
+                      <el-button type="success">重置</el-button>
+                  </el-form-item>
+                  </el-col>
+                  </el-row>
+                  </el-form>
+     </el-card>
         
 
 
@@ -199,7 +180,16 @@
             name: '服务器设备采购'
           }
         
-          ]
+          ],
+          form: {
+          take1: '',
+          take2: '',
+          delivery: false,
+          take3: '',
+          take4: '',
+          name:''
+        }
+          
     }
     },
     methods: {
