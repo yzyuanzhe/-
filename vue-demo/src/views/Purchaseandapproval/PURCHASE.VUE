@@ -5,7 +5,7 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>采购计划申请</el-breadcrumb-item>
+              <el-breadcrumb-item>采购计划审批</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 

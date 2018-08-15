@@ -16,133 +16,234 @@
            <h4>审编信息</h4>
           </el-col>
     </el-row>
+              <!-- 数据 -->
+      <!-- 表单开始 -->
+       <div class="makepadding">
+       <el-form ref="form" :model="form" label-width="20%">
+           <el-row>
+                      <el-form-item label="确认状态:" style="
+    margin-left: -13%;
+">
+                    <el-select v-model="form.region" placeholder="同意受理">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+           </el-row>
+           <el-row>
+                <el-form-item label="意见反馈:" style="
+    margin-left: -13%;
+">
+                    <el-input type="textarea" v-model="form.desc"></el-input>
+                </el-form-item>
+         
+           </el-row>
+           <el-row>
+               <el-col :span="12">
+                <el-form-item label="申请单位:">
+                    <el-input v-model="form.company" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+               <el-col :span="12">
+                <el-form-item label="申请日期:">
+                    <el-input v-model="form.time" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+         </el-row>
+           <el-row>
+               <el-col :span="12">
+                <el-form-item label="采购名称:">
+                    <el-input v-model="form.name" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+               <el-col :span="12" style="position:relative">
+                    <el-form-item label="采购类型:">
+                    <el-select v-model="form.region" placeholder="货物采购">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+            
+               
+              <div class="bottom">
+                 <el-form-item >
+                    <el-radio-group v-model="form.resource" style="margin-left: 20%;position:  absolute;top: -51px;left: 124px;">
+                    <el-radio label="进口货物"></el-radio>
+                    <el-radio label="国产货物"></el-radio>
+                    </el-radio-group>
+                 </el-form-item>
+                 </div>
+                 </el-col>
+         </el-row>
 
-<div class="takem">
-    <el-row>
-          <el-col :span="12">确认状态：<el-select v-model="value" placeholder="同意受理">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-    </el-row>
-            <el-row>
-                意见反馈：<el-input
-                    type="textarea"
-                    :autosize="{ minRows: 3, maxRows: auto}"
-                    placeholder="请输入内容"
-                    v-model="textarea2"
-                   >
-                    </el-input>
-            </el-row>
-      <el-row>
-        <el-col :span="12">申请单位：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12">申请日期：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-    <el-row>
-        <el-col :span="12">采购名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-             <el-col :span="12">采购类型：
-                 <el-select v-model="value" placeholder="同意受理">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-                 <el-radio v-model="radio" label="1">进口货物</el-radio>
-                 <el-radio v-model="radio" label="2">国产货物</el-radio>
+         <el-row>
+             <el-col :span="12">
+              <el-form-item label="采购用途:" >
+                    <el-radio-group v-model="form.use">
+                    <el-radio label="教学"></el-radio>
+                    <el-radio label="科研"></el-radio>
+                    <el-radio label="保障运行"></el-radio>
+                    <el-radio label="其他"></el-radio>
+                    </el-radio-group>
+                 </el-form-item>
              </el-col>
-    </el-row>
-    
-     <el-row>
-       <el-col :span="12">采购用途：
-             <el-radio v-model="radio" label="1">教学</el-radio>
-             <el-radio v-model="radio" label="2">科研</el-radio>
-             <el-radio v-model="radio" label="3">保障运行</el-radio>
-             <el-radio v-model="radio" label="4">其他</el-radio>
-       </el-col>
-       <el-col :span="12">采购预算：<el-input v-model="input" style="width:40%;"></el-input>  万元</el-col>
-    </el-row>
+             <el-col :span="12">
+                    <el-form-item label="采购预算:">
+                    <el-input v-model="form.money" class="w40"></el-input>万元
+                </el-form-item>
+             </el-col>
+         </el-row>
 
-    <el-row>
-        <el-col :span="12" style="padding-left: 12px;">经办人：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
-    <el-row>
-        <el-col :span="12" style="margin-left:-17px;">经费负责人：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12"  style="margin-left:17px;">手机号码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
+          <el-row>
+               <el-col :span="12">
+                <el-form-item label="经办人:">
+                    <el-input v-model="form.company" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+               <el-col :span="12">
+                <el-form-item label="手机号码:">
+                    <el-input v-model="form.time" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+         </el-row>
+          <el-row>
+               <el-col :span="12">
+                <el-form-item label="经费负责人:">
+                    <el-input v-model="form.company" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+               <el-col :span="12">
+                <el-form-item label="手机号码:">
+                    <el-input v-model="form.time" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+         </el-row>
+          <el-row>
+               <el-col :span="12">
+                <el-form-item label="经费代码:">
+                    <el-input v-model="form.company" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+               <el-col :span="12">
+                <el-form-item label="采购依托建设项目名称:">
+                    <el-input v-model="form.time" class="w40"></el-input>
+                </el-form-item>
+                </el-col>
+         </el-row>
+         <el-row>
+             <el-col :span="12">
+                    <el-form-item label="经费类型:">
+                    <el-select v-model="form.region" placeholder="科研经费">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+             </el-col>
+             <el-col :span="12">
+                    <el-form-item label="采购方式:">
+                    <el-select v-model="form.region" placeholder="公开招标">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+             </el-col>
+           
+         </el-row>
+         <el-row>
+             <el-col :span="12">
+                    <el-form-item label="组织形式:">
+                    <el-select v-model="form.region" placeholder="集中采购">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+             </el-col>
+             <el-col :span="12">
+                    <el-form-item label="执行机构:">
+                    <el-select v-model="form.region" placeholder="招标代理机构">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+             </el-col>
+           
+         </el-row>
 
-    <el-row>
-        <el-col :span="12">经费代码：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-        <el-col :span="12" style="margin-left:-83px;">采购依托建设项目名称：<el-input v-model="input" style="width:40%;"></el-input></el-col>
-    </el-row>
 
-    <el-row style="margin-top:10px;">
-        <el-col :span="12">经费类型：<el-select v-model="value" placeholder="科研经费">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-        <el-col :span="12">采购方式：<el-select v-model="value" placeholder="公开招标">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-    </el-row>
-   
-    <el-row>
-        <el-col :span="12">组织形式：<el-select v-model="value" placeholder="集中采购">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-        <el-col :span="12">执行机构：<el-select v-model="value" placeholder="招标代理机构">
-                <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-                </el-option>
-            </el-select>
-        </el-col>
-        
-    </el-row>
+         <!-- 上传 -->
+         <el-row>
+             <div class="onload1">  
+             <el-col :span="12" style="
+    padding-left: 28px;
+">
+                 <div style="float: left;margin-left: 14px;margin-right: 11px;">需求技术指标:</div>
+              <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :before-remove="beforeRemove"
+                multiple
+                :limit="3"
+                :on-exceed="handleExceed"
+                :file-list="fileList">
+                <el-button size="small" type="primary"><i class="el-icon-upload2"></i>上传</el-button>
+              </el-upload>
+             </el-col>
+             <el-col :span="12">
+                 <div style="float: left;margin-left: 14px;margin-right: 11px;">单一来源论证附件:</div>
+              <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :before-remove="beforeRemove"
+                multiple
+                :limit="3"
+                :on-exceed="handleExceed"
+                :file-list="fileList">
+                <el-button size="small" type="primary"><i class="el-icon-upload2"></i>上传</el-button>
+              </el-upload>
+             </el-col>
+            
+             </div>    
+         </el-row>
 
 
-    <el-row>
-        <el-col :span="12">需求来源论证附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button></el-col>
-        <el-col :span="12">单一来源论证附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button></el-col>
-    </el-row>
-    <el-col style="margin:20px;padding-left: 65px;">其他附件：<el-button type="primary"><i class="el-icon-upload2"></i>上传</el-button> </el-col>
+         <el-row>
+             <div class="onload1">  
+             <el-col :span="12" style="
+    padding-left: 56px;
+">
+                 <div style="float: left;margin-left: 14px;margin-right: 11px;">其他附件:</div>
+              <el-upload
+                class="upload-demo"
+                action="https://jsonplaceholder.typicode.com/posts/"
+                :on-preview="handlePreview"
+                :on-remove="handleRemove"
+                :before-remove="beforeRemove"
+                multiple
+                :limit="3"
+                :on-exceed="handleExceed"
+                :file-list="fileList">
+                <el-button size="small" type="primary"><i class="el-icon-upload2"></i>上传</el-button>
+              </el-upload>
+             </el-col>
+            
+            
+             </div>    
+         </el-row>
+           <el-row>
+            <el-form-item label="采购方式理由:"  style="
+    margin-left: -13%;
+">
+                <el-input type="textarea" v-model="form.desc"></el-input>
+            </el-form-item>
+           </el-row>
 
-    <el-row>
-                采购方式：<el-input
-                    type="textarea"
-                    :autosize="{ minRows: 3, maxRows: auto}"
-                    placeholder="请输入内容"
-                    v-model="textarea2"
-                   >
-                    </el-input>
-            </el-row>
-  
-</div>
+
+</el-form>
+    </div>  
 
     </el-card>
 
@@ -238,10 +339,24 @@
    </div>
 </template>
 <script>
-    export default {
-        data:{
-            
-        }
+  export default {
+     data (){ 
+           return{
+         form: {
+          company: '',
+          time: '',
+          name: '',
+         money:'',
+          delivery: false,
+          type: [],
+          resource: '',
+          use:'',
+          desc: ''
+        },
+       
+
+         }
+     }
     }
 </script>
 <style>
@@ -269,6 +384,34 @@
 .takem .el-row{
     margin-top: 20px;
     padding-left: 28px;
+}
+.onload1 .el-upload-list {
+    float: left;
+    margin-top: -16px;
+}
+.onload1 .el-upload {
+    float: left;
+}
+.onload1 .el-col-12 {
+    margin-bottom: 10px;
+}
+.onload1 .el-form-item__content{
+    margin-left: 0;
+}
+.onload1 .el-form-item__label{
+    width: 20%;
+}
+
+.w40{
+    width: 60%;
+}
+.makepadding {
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 20px;
+}
+.bottom .el-radio__label  {
+    padding-left: 0;
 }
 
 

@@ -5,7 +5,7 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>招标文件审核</el-breadcrumb-item>
+              <el-breadcrumb-item>定标结果审核</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 
@@ -30,7 +30,7 @@
                 </el-form-item>
             </el-col>
               <el-col :span="8">
-                <el-form-item label="采购方式">
+                <el-form-item label="状态">
                     <el-select v-model="form.take3">
                     <el-option label="类型一" value="shanghai"></el-option>
                     <el-option label="类型二" value="beijing"></el-option>
@@ -40,7 +40,7 @@
      </el-row>
        <el-row>
            <el-col :span="8">
-                  <el-form-item label="状态">
+                  <el-form-item label="采购名称">
                     <el-select v-model="form.take4">
                     <el-option label="类型一" value="shanghai"></el-option>
                     <el-option label="类型二" value="beijing"></el-option>
@@ -69,6 +69,7 @@
         <el-row>
           <el-col :span="24">
         <div class="button3">
+            <el-button type="primary">上报结果</el-button>
             <el-button type="primary">导出列表数据</el-button>
         </div>
         </el-col>
@@ -95,7 +96,7 @@
             label="操作"
           >
              <template slot-scope="scope" style="padding: 0 1%;">
-            <a href="#" @click="takedeclare" style="color: rgb(30, 136, 229);">查看并审批</a>
+            <a href="#" @click="takeresultaudit" style="color: rgb(30, 136, 229);">查看</a>
           </template>
           </el-table-column>
           <el-table-column
@@ -109,7 +110,11 @@
 
               <el-table-column
             prop="address"
-            label="采购预算(元)">
+            label="中标单位">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="中标金额(元)">
           </el-table-column>
               <el-table-column
             prop="address"
@@ -194,8 +199,8 @@
     }
     },
     methods: {
-      takedeclare() {
-        this.$router.push({ path: '/takedeclare'})
+      takeresultaudit() {
+        this.$router.push({ path: '/takeresultaudit'})
       }
     }
   }

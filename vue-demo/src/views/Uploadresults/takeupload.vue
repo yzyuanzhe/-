@@ -5,8 +5,8 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>招标结果定标</el-breadcrumb-item>
-              <el-breadcrumb-item>定标详情</el-breadcrumb-item>
+              <el-breadcrumb-item>上传招标结果</el-breadcrumb-item>
+              <el-breadcrumb-item>新增信息</el-breadcrumb-item>
 
             </el-breadcrumb>
             </div>
@@ -231,28 +231,8 @@
         </el-card>
 
 
-       <!-- 审批意见 -->
-        <el-card style="margin-top:20px;">
-                <!-- 标题 -->
-                <el-row>
-                    <el-col class="h4border">
-                        <h4>审批意见</h4>
-                    </el-col>
-                </el-row>
-                <el-row style="margin-top:10px;">
-                   <el-input
-                    type="textarea"
-                    :autosize="{ minRows: 4, maxRows: 8}"
-                    placeholder="请输入内容"
-                    v-model="textarea3">
-                    </el-input>
-                </el-row>
-        </el-card>
-
-
          <el-row style="margin-left:40%;margin-top:10px;" class="takebtn">
                    <el-button type="primary">提交</el-button>
-                   <el-button type="primary">废标</el-button>
                    <el-button type="danger">返回</el-button>
          </el-row>
            

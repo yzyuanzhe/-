@@ -1,11 +1,11 @@
 <template>
-      <div>
+<div>
             <!-- <router-view></router-view> -->
             <!-- 面包屑 -->
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>招标结果定标</el-breadcrumb-item>
+              <el-breadcrumb-item>上传中标通知书</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 
@@ -94,29 +94,30 @@
             prop="take"
             label="操作"
           >
-             <template slot-scope="scope">
-            <a href="#" @click="takeresult" style="color: rgb(30, 136, 229);">查看</a>
+             <template slot-scope="scope" style="padding: 0 1%;">
+            <a href="#" @click="takenotice" style="color: rgb(30, 136, 229);">查看并审批</a>
           </template>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="采购类型">
           </el-table-column>
           <el-table-column
             prop="name"
             label="采购名称">
           </el-table-column>
+
               <el-table-column
             prop="address"
             label="中标单位">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="中标金额（元）">
+            label="中标金额(元)">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="项目联系人">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="联系方式">
+            label="经费类型">
           </el-table-column>
               <el-table-column
             prop="address"
@@ -131,7 +132,7 @@
         <el-col :span="24">
       <div class="block">
           <el-pagination
-             @size-change="handleSizeChange"
+            @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
             :current-page.sync="currentPage3"
             :page-size="100"
@@ -143,19 +144,45 @@
         </el-col>
       </el-row>
       </el-card>
-
-   </div>
+</div>
 </template>
 <script>
      export default {
     data(){
       return {
           tableData: [{
-            num: 1,
-            take: '查看',
-            name: '服务器设备采购'
-          }],
-          form: {
+                num: 1,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 2,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 3,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 4,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 5,
+                take: '查看',
+                name: '服务器设备采购'
+            },
+            {
+                num: 6,
+                take: '查看',
+                name: '服务器设备采购'
+            }
+        
+          ],
+           form: {
           take1: '',
           take2: '',
           delivery: false,
@@ -163,23 +190,18 @@
           take4: '',
           name:''
         }
+          
     }
     },
     methods: {
-      takeresult() {
-        this.$router.push({ path: '/takeresult'})
+      takenotice() {
+        this.$router.push({ path: '/takenotice'})
       }
     }
   }
 </script>
 <style>
-body{
-  margin: 0;
-  padding: 0;
-}
-.container {
-  height: 100%;
-}
+
 .aside .menu {
   height: 100%;
 }
@@ -278,32 +300,5 @@ body{
  width: 100%;
  margin-top:10px;
 }
-.onload1 .el-upload-list {
-    float: left;
-    margin-top: -16px;
-}
-.onload1 .el-upload {
-    float: left;
-}
-.onload1 .el-form-item__content{
-    margin-left: 0;
-}
-.onload1 .el-form-item__label{
-    width: 20%;
-}
-
-.w40{
-    width: 60%;
-}
-.makepadding {
-    padding-left: 70px;
-    padding-right: 70px;
-    margin-top: 20px;
-}
-.bottom .el-radio__label  {
-    padding-left: 0;
-}
-
-
 
 </style>

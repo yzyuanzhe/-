@@ -63,21 +63,53 @@
             <el-menu-item index="/proxy">代理机构抽选</el-menu-item>
             <el-menu-item index="/confirmation">确认招标任务</el-menu-item>
             <el-menu-item index="/biddingdocuments">招标文件申报</el-menu-item>
-            <el-menu-item index="/documentaudit">招标文件审核</el-menu-item>
+            <el-menu-item index="/examine">招标文件审核</el-menu-item>
             <el-menu-item index="/uploadresults">上传招标结果</el-menu-item>
             <el-menu-item index="/result">招标结果定标</el-menu-item>
-            <el-menu-item index="1-9">定标结果审核</el-menu-item>
-            <el-menu-item index="1-10">上传中标通知书</el-menu-item>
+            <el-menu-item index="/resultaudit">定标结果审核</el-menu-item>
+            <el-menu-item index="/notice">上传中标通知书</el-menu-item>
+            <el-menu-item index="/participate">已参与投标项目</el-menu-item>
+            <el-menu-item index="1-12">我要报名</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-              <el-submenu index="2">
+         <el-submenu index="2">
+          <template slot="title">
+           <img src="@/assets/ziliaoguanli.png" alt="">
+            <span style="padding-right:8px;">资料管理</span>
+          </template>
+          <el-menu-item-group>
+          <el-menu-item index="2-1">企业资料</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+         <el-submenu index="3">
           <template slot="title">
            <img src="@/assets/gongyingshangguanli.png" alt="">
             <span style="padding-right:8px;">供应商管理</span>
           </template>
           <el-menu-item-group>
-          <el-menu-item index="2-1">资质审查</el-menu-item>
-          <el-menu-item index="2-2">供应商库</el-menu-item>
+          <el-menu-item index="3-1">资质审查</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+         <el-submenu index="4">
+          <template slot="title">
+           <img src="@/assets/mimaguanli.png" alt="">
+            <span style="padding-right:8px;">密码管理</span>
+          </template>
+          <el-menu-item-group>
+          <el-menu-item index="3-1">修改密码</el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+         <el-submenu index="5">
+          <template slot="title">
+           <img src="@/assets/xitongguanli.png" alt="">
+            <span style="padding-right:8px;">系统管理</span>
+          </template>
+          <el-menu-item-group>
+          <el-menu-item index="3-1">用户管理</el-menu-item>
+          <el-menu-item index="3-2">角色管理</el-menu-item>
+          <el-menu-item index="3-3">权限管理</el-menu-item>
+          <el-menu-item index="3-4">流程管理</el-menu-item>
+          <el-menu-item index="3-5">操作日志</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
       
@@ -129,7 +161,7 @@ export default {
           name: "服务器设备采购"
         }
       ],
-      openeds: ["1", "2"]
+      openeds: ["1"]
     };
   }
 };

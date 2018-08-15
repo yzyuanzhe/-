@@ -11,74 +11,86 @@
             </el-breadcrumb>
             </div>
    
-              <el-row>
+              <el-row style="
+    margin-top: 23px;
+">
                    <el-col style="margin-top:24px;text-align:center;">
                     <h2>招标代理机构随机抽选</h2>
                 </el-col>
               </el-row>
           <!-- 确定项目内容及名单 -->
-          <el-card>
-              <el-row>
-                <el-col class="h4border">
+              <el-card shadow="never" class="Purchase" style="height:100%;margin-top:20px;">
+              <el-row style="
+    margin-bottom: 20px;
+">
+                <el-col class="h4border" >
                     <h4>确定项目内容及名单</h4>
                 </el-col>
             </el-row>
 
               <!-- 数据 -->
-             <div class="takem">
-              <el-row>
-                  <el-col :span="8">经办人：
-                      <el-input v-model="input" class="w4" style="width:217px;"></el-input>
-                  </el-col>
-                  <el-col :span="8">抽取家数：
-                      <el-input v-model="input" class="w4" style="width:217px;"></el-input>
-                  </el-col>
-              </el-row>
+           
+                      <el-form ref="form1" :model="form1" label-width="80px" style="
+    padding-left: 3%;
+">
+             
+            <el-row>
+              <el-col :span="8">
+                  <el-form-item label="采购名称:">
+                      <el-input v-model="form1.name" style="width: 49%;"></el-input>
+                  </el-form-item>
+              </el-col>
+              <el-col :span="8">
+                  <el-form-item label="抽取家数:">
+                      <el-input v-model="form1.num" style="width: 49%;"></el-input>
+                  </el-form-item>
+              </el-col>
             
-         </div>
+                  </el-row>
+                  </el-form>
+  
 
           </el-card>
 
           <!-- 抽选范围 -->
-               <el-card style="margin-top:20px;">
-              <el-row>
+               <el-card shadow="never" class="Purchase" style="height:100%;;margin-top:20px;">
+              <el-row style="
+    margin-bottom: 20px;
+">
                 <el-col class="h4border">
                     <h4>抽选范围</h4>
                 </el-col>
             </el-row>
 
-              <!-- 数据 -->
-       
-                 <div class="takem">
-              <el-row>
-                  <el-col :span="8">抽选条件：
-                        <el-select v-model="value" placeholder="不设定抽选范围">
-                            <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                            </el-option>
-                        </el-select>
+                      <el-form ref="form" :model="form2" label-width="80px" style="
+    padding-left: 3%;
+">
+                <el-row>
+                    <el-col :span="8">
+                      <el-form-item label="抽选条件">
+                          <el-select v-model="form2.take1" placeholder="不设定抽取范围">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
                   </el-col>
-                      <el-col :span="8">所属区域：
-                        <el-select v-model="value">
-                            <el-option
-                            v-for="item in options"
-                            :key="item.value"
-                            :label="item.label"
-                            :value="item.value">
-                            </el-option>
-                        </el-select>
+                    <el-col :span="8">
+                      <el-form-item label="所属区域">
+                          <el-select v-model="form2.take2">
+                          <el-option label="类型一" value="shanghai"></el-option>
+                          <el-option label="类型二" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
                   </el-col>
-                  <el-col :span="8">资质等级：
-                      <el-input v-model="input" class="w4"  placeholder="高级代理机构"></el-input>
-                  </el-col>
-              </el-row>
-            
-         </div>
-
-          </el-card>
+                   <el-col :span="8">
+                  <el-form-item label="资质等级">
+                      <el-input v-model="form2.name" style="width: 49%;" placeholder="高级代理机构"></el-input>
+                  </el-form-item>
+              </el-col>
+                
+          </el-row>
+                  </el-form>
+     </el-card>
 
       
       
@@ -101,6 +113,7 @@
             <el-table-column
                 prop="num"
                 label="序号"
+                type="index"
             >
             </el-table-column>
             <el-table-column
@@ -158,6 +171,7 @@
             <el-table-column
                 prop="num"
                 label="序号"
+                type="index"
             >
             </el-table-column>
             <el-table-column
@@ -218,6 +232,7 @@
             <el-table-column
                 prop="num"
                 label="序号"
+                type="index"
             >
             </el-table-column>
             <el-table-column
@@ -268,7 +283,37 @@
        </div>
 </template>
 <script>
-export default {};
+ export default {
+    data(){
+      return {
+           form1: {
+          delivery: false,
+          name:'',
+          num:''
+        },
+        form2:
+        {
+            take1:'',
+            take2:'',
+            name:''
+        },
+          tableData: [{
+          date: '2016-05-02',
+          name: '抽选机构',
+          address: '机构1'
+        },{
+          date: '2016-05-02',
+          name: '抽选机构',
+          address: '机构1'
+        },{
+          date: '2016-05-02',
+          name: '抽选机构',
+          address: '机构1'
+        }
+        ]   
+         }
+    }
+  }
 </script>
 <style>
 .fl {

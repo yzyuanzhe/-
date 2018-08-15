@@ -5,12 +5,62 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>招标结果定标</el-breadcrumb-item>
-              <el-breadcrumb-item>定标详情</el-breadcrumb-item>
+              <el-breadcrumb-item>定标结果审核</el-breadcrumb-item>
+              <el-breadcrumb-item>审核详情页面</el-breadcrumb-item>
+       
 
             </el-breadcrumb>
             </div>
    
+
+               <el-card class="box6" style="margin-top:40px;">
+             <el-row>
+               
+                 <el-col :span="3">
+                      <div class="leftimg">
+                        <img src="@/assets/QQ图片20180809181353.png" alt="">
+                      </div>
+                 </el-col>
+                 <div style="margin-top:16px;">
+                   <el-col :span="2"><div class="one box">经办人拟制合同</div></el-col>
+                   <el-col :span="1" fl>
+                       <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                       </el-col>
+                   <el-col :span="2"><div class="two box">经费负责人审批</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="three box">招标中心初审</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="four box">法务审核</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="five box">招标中心复审</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="six box">生成合同</div></el-col>    
+                    </div>
+             </el-row>                   
+            </el-card>
 
           <el-card>
               <el-row>

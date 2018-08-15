@@ -96,7 +96,7 @@
             label="操作"
           >
              <template slot-scope="scope" style="padding: 0 1%;">
-            <a href="#" @click="takedeclare" style="color: rgb(30, 136, 229);">查看</a>
+            <a href="#" @click="takeupload" style="color: rgb(30, 136, 229);">查看</a>
           </template>
           </el-table-column>
           <el-table-column
@@ -199,8 +199,8 @@
     }
     },
     methods: {
-      takedeclare() {
-        this.$router.push({ path: '/takedeclare'})
+      takeupload() {
+        this.$router.push({ path: '/takeupload'})
       }
     }
   }

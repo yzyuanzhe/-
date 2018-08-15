@@ -5,12 +5,63 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>招标文件申报</el-breadcrumb-item>
-              <el-breadcrumb-item>申报详情</el-breadcrumb-item>
+              <el-breadcrumb-item>招标文件审核</el-breadcrumb-item>
+              <el-breadcrumb-item>审核详情</el-breadcrumb-item>
 
             </el-breadcrumb>
             </div>
-    <el-card style="margin-top:50px;padding:26px;padding-top: 0;">
+
+            <el-card class="box6">
+             <el-row>
+               
+                 <el-col :span="3">
+                      <div class="leftimg">
+                        <img src="@/assets/QQ图片20180809181353.png" alt="">
+                      </div>
+                 </el-col>
+                 <div style="margin-top:16px;">
+                   <el-col :span="2"><div class="one box">经办人拟制合同</div></el-col>
+                   <el-col :span="1" fl>
+                       <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                       </el-col>
+                   <el-col :span="2"><div class="two box">经费负责人审批</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="three box">招标中心初审</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="four box">法务审核</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="five box">招标中心复审</div></el-col>
+                   <el-col :span="1">
+                        <div class="arrow">
+                        <img src="@/assets/left.png" alt="">
+                        <img src="@/assets/right.png" alt="">
+                       </div>
+                   </el-col>
+                   <el-col :span="2"><div class="six box">生成合同</div></el-col>    
+                    </div>
+             </el-row>                   
+            </el-card>
+
+      <!-- 表单开始 -->
+     <el-card style="margin-top:px;padding:26px;padding-top: 0;">
         <el-row>
           <el-col class="h4border">
            <h4>审编信息</h4>
@@ -325,6 +376,7 @@
 </el-form>
     </div>  
 
+
     </el-card>
 
 <!-- 产品清单 -->
@@ -348,67 +400,68 @@
 
             <!-- 表格 -->
              <el-table
-                    :data="tableData"
-                    :align="center"
-                    border
-                    class="fromlist1">
-                        <el-table-column
-                        type="selection"
-                        width="55">
-                    </el-table-column>
-                    <el-table-column
-                        prop="num"
-                        label="序号"
-                    >
-                    </el-table-column>
-                    <el-table-column
-                        prop="take"
-                        label="操作"
-                    >
-                        <template slot-scope="scope">
-                        <a href="#" @click="takepurchase" style="color:#009F44;">编辑</a>
-                    </template>
-                    </el-table-column>
-                    <el-table-column
-                        prop="name"
-                        label="计划名称">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="产品名称">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="技术指标">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="数量">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="单价（元）">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="总价（元）">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="采购分类">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="申请采购方式">
-                    </el-table-column>
-                        <el-table-column
-                        prop="address"
-                        label="进口设备">
-                    </el-table-column>
+          :data="tableData"
+          :align="center"
+          border
+          class="fromlist1">
+            <el-table-column
+            type="selection"
+            width="55">
+          </el-table-column>
+          <el-table-column
+            prop="num"
+            label="序号"
+        >
+          </el-table-column>
+          <el-table-column
+            prop="take"
+            label="操作"
+          >
+             <template slot-scope="scope">
+            <a href="#" @click="takepurchase" style="color:#009F44;">编辑</a>
+          </template>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="计划名称">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="产品名称">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="技术指标">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="数量">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="单价（元）">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="总价（元）">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="采购分类">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="申请采购方式">
+          </el-table-column>
+              <el-table-column
+            prop="address"
+            label="进口设备">
+          </el-table-column>
         </el-table>
         <el-row>
-            <el-col style="margin-top:20px;margin-left: 44%;">
-                 <el-button type="primary">确定申报</el-button>
+            <el-col style="margin-top:20px;">
+                 <el-button type="primary">同意</el-button>
+                 <el-button type="warning">拒绝</el-button>
                  <el-button type="danger">取消</el-button>
             </el-col>
         </el-row>
@@ -418,10 +471,10 @@
    </div>
 </template>
 <script>
-    export default {
-    data() {
-      return {
-        form: {
+  export default {
+     data (){ 
+           return{
+         form: {
           company: '',
           time: '',
           name: '',
@@ -432,24 +485,10 @@
           use:'',
           desc: ''
         },
-         fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
-      
-      }
-    },
-    methods: {
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePreview(file) {
-        console.log(file);
-      },
-      handleExceed(files, fileList) {
-        this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
-      },
-      beforeRemove(file, fileList) {
-        return this.$confirm(`确定移除 ${ file.name }？`);
-      }
-  }
+       
+
+         }
+     }
     }
 </script>
 <style>
@@ -458,7 +497,6 @@
     margin-left: 10px;
 }
 .h4border{
-    color: #1E88E5;
     padding: 18px;
     border-bottom: 2px dashed #ccc;
 }
@@ -479,13 +517,15 @@
     margin-top: 20px;
     padding-left: 28px;
 }
-/* 处理上传 */
 .onload1 .el-upload-list {
     float: left;
     margin-top: -16px;
 }
 .onload1 .el-upload {
     float: left;
+}
+.onload1 .el-col-12 {
+    margin-bottom: 10px;
 }
 .onload1 .el-form-item__content{
     margin-left: 0;
@@ -505,10 +545,25 @@
 .bottom .el-radio__label  {
     padding-left: 0;
 }
-
-
-
-
-
+.leftimg img{
+    width: 150px;
+   
+    }
+.box6{
+    margin-top: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.box{
+    text-align: center;
+        margin-left: 60px;
+    line-height: 90px;
+    float: left;
+    width: 124px;
+    height: 90px;
+    border-radius: 17px;
+    background-color: #8ABF50;
+   
+}
 
 </style>
