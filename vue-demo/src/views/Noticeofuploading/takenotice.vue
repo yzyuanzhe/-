@@ -12,7 +12,7 @@
             </div>
    
 
-          <el-card>
+          <el-card style="margin-top:40px;">
               <el-row>
                 <el-col class="h4border">
                     <h4>审编信息</h4>

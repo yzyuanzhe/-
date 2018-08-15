@@ -6,34 +6,34 @@
 
    <el-row>
         <el-col :span="4" class="tleftimg">
-          <img src="../assets/北航logo白色.png" alt="">
+          <img src="@/assets/北航logo白色.png" alt="">
         </el-col>
         <el-col :span="4" style=" text-align: center;">
          <a class="users" >合同管路系统</a>
         </el-col>
         <el-col :span="10" class="iconlist">
          <div class="toptitle  fl">
-           <img src="../assets/电子招投标.png" alt="">
+           <img src="@/assets/电子招投标.png" alt="">
            <h3>招投标</h3>
          </div>
          <div class="toptitle  fl">
-             <img src="../assets/合同管理.png" alt="">
+             <img src="@/assets/合同管理.png" alt="">
            <h3>合同管理</h3>
          </div>
          <div class="toptitle  fl">
-            <img src="../assets/资产管理.png" alt="">
+            <img src="@/assets/资产管理.png" alt="">
            <h3>资产管理</h3>
          </div>
          <div class="toptitle  fl">
-           <img src="../assets/系统管理.png" alt="">
+           <img src="@/assets/系统管理.png" alt="">
            <h3>系统管理</h3>
          </div>
         </el-col>
    <el-col :span="1" class=" rightimg fr">
-         <img src="../assets/个人.png" alt="">
+         <img src="@/assets/个人.png" alt="">
         </el-col>
          <el-col :span="1" class="rightimg fr">
-        <img src="../assets/退出.png" alt="">
+        <img src="@/assets/退出.png" alt="">
         </el-col>
         <el-col :span="3" class="fr">
           <a class="users" href="#">用户名：经办人</a>
@@ -69,7 +69,7 @@
             <el-menu-item index="/resultaudit">定标结果审核</el-menu-item>
             <el-menu-item index="/notice">上传中标通知书</el-menu-item>
             <el-menu-item index="/participate">已参与投标项目</el-menu-item>
-            <el-menu-item index="1-12">我要报名</el-menu-item>
+            <el-menu-item index="/signup">我要报名</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
          <el-submenu index="2">
@@ -78,7 +78,7 @@
             <span style="padding-right:8px;">资料管理</span>
           </template>
           <el-menu-item-group>
-          <el-menu-item index="2-1">企业资料</el-menu-item>
+          <el-menu-item index="/information">企业资料</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
          <el-submenu index="3">
@@ -87,7 +87,7 @@
             <span style="padding-right:8px;">供应商管理</span>
           </template>
           <el-menu-item-group>
-          <el-menu-item index="3-1">资质审查</el-menu-item>
+          <el-menu-item index="/examination">资质审查</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
          <el-submenu index="4">
@@ -105,8 +105,8 @@
             <span style="padding-right:8px;">系统管理</span>
           </template>
           <el-menu-item-group>
-          <el-menu-item index="3-1">用户管理</el-menu-item>
-          <el-menu-item index="3-2">角色管理</el-menu-item>
+          <el-menu-item index="/user">用户管理</el-menu-item>
+          <el-menu-item index="/role">角色管理</el-menu-item>
           <el-menu-item index="3-3">权限管理</el-menu-item>
           <el-menu-item index="3-4">流程管理</el-menu-item>
           <el-menu-item index="3-5">操作日志</el-menu-item>
@@ -174,10 +174,10 @@ body {
 }
 /* 导航栏 */
 .el-submenu .el-menu-item {
-  font-size: 17px;
+  font-size: 14px;
 }
 .el-submenu__title {
-   font-size: 18px;
+   font-size: 16px;
 }
 .container {
   height: 100%;

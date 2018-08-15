@@ -64,7 +64,7 @@
           <!-- 按钮-审批历程 -->
           <el-row>
                <el-button>内容</el-button>
-            <el-button type="primary" style="margin-left:none;">审批历程</el-button>
+            <el-button type="primary" style="margin-left:none;" @click="openstep">审批历程</el-button>
           </el-row>
           <!-- 内容 -->
           <el-card>
@@ -428,7 +428,12 @@
        
 
          }
-     }
+     },
+     methods: {
+      openstep() {
+        this.$router.push({ path: '/openstep'})
+      }
+    }
     }
 </script>
 <style>
@@ -538,7 +543,7 @@
     margin-left: 0;
 }
 .onload1 .el-form-item__label{
-    width: 20%;
+    width: 22%;
 }
 
 .w40{

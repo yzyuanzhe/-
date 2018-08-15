@@ -3,10 +3,12 @@ import Router from 'vue-router'
 import Home from '@/views/home.vue'
 import Apply from '@/views/apply.vue'
 import Check from '@/views/check.vue'
+import Openstep from '@/views/openstep.vue'
 import Revise from '@/views/revise.vue'
 import Homepage from '@/views/homepage.vue'
 import Purchase from '@/views/purchaseandapproval/purchase.vue'   //采购计划审批
 import TakepurChase from '@/views/Purchaseandapproval/takepurchase.vue'
+import Openstep2 from '@/views/Purchaseandapproval/openstep2.vue'
 import Proxy from '@/views/Proxyselection/proxy.vue' //代理机构抽选
 import Takeproxy from '@/views/Proxyselection/Takeproxy.vue'
 import ConfirMation from '@/views/Confirmationoftendering/confirmation.vue'//确认招标任务
@@ -24,6 +26,13 @@ import Takeresultaudit from '@/views/Calibrationresultaudit/takeresultaudit.vue'
 import Notice from '@/views/Noticeofuploading/notice.vue' //上传中标通知书
 import Takenotice from '@/views/Noticeofuploading/takenotice.vue'
 import Participate from '@/views/Havebeeninvolved/participate.vue'
+import Signup from '@/views/Iwanttosignup/signup.vue'//我要报名
+import User from '@/views/Usermanagement/user.vue'//用户管理
+import Role from '@/views/Rolemanagement/role.vue'//角色管理
+import Addrole from '@/views/Rolemanagement/addrole.vue'
+import Examination from '@/views/Qualificationexamination/examination.vue' //资质审查
+import Takeexamination from '@/views/Qualificationexamination/takeexamination.vue' 
+import Information from '@/views/Companyinformation/information.vue' //企业资料
 
 
 
@@ -56,6 +65,11 @@ export default new Router({
               component:Check
             },
             {
+              name:'openstep',
+              path:'/openstep',
+              component:Openstep
+            },
+            {
               name:'revise',
               path:'/revise',
               component:Revise
@@ -74,6 +88,11 @@ export default new Router({
               name: 'takepurchase',
               path: '/takepurchase',
               component: TakepurChase
+            },
+            {//采购计划审批的审批历程
+              name:'openstep2',
+              path:'/openstep2',
+              component:Openstep2
             },
             {
               name:'proxy',
@@ -159,6 +178,42 @@ export default new Router({
               name:'participate',
               path:'/participate',
               component:Participate
+            },
+            {
+              
+              name:'signup',
+              path:'/signup',
+              component:Signup
+            },
+            {
+              name:'user',
+              path:'/user',
+              component:User
+            },
+            {
+              name:'role',
+              path:'/role',
+              component:Role
+            },
+            {
+              name:'addrole',
+              path:'/addrole',
+              component:Addrole
+            },
+            {//资质审查
+              name:'examination',
+              path:'/examination',
+              component:Examination
+            },
+            {
+              name:'takeexamination',
+              path:'/takeexamination',
+              component:Takeexamination
+            },
+            {//资料管理
+              name:'information',
+              path:'/information',
+              component:Information
             }
             
           ]

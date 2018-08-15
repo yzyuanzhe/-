@@ -64,7 +64,7 @@
           <!-- 按钮-审批历程 -->
           <el-row>
                <el-button>内容</el-button>
-            <el-button type="primary" style="margin-left:none;">审批历程</el-button>
+            <el-button type="primary" style="margin-left:none;" @click="openstep2">审批历程</el-button>
           </el-row>
           <!-- 内容 -->
           <el-card>
@@ -342,7 +342,11 @@
 </template>
 <script>
     export default {
-
+ methods: {
+      openstep2() {
+        this.$router.push({ path: '/openstep2'})
+      }
+    }
     }
 </script>
 <style>

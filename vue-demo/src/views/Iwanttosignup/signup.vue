@@ -5,40 +5,16 @@
             <div class="box-card1">
               <el-breadcrumb separator-class="el-icon-arrow-right">
               <el-breadcrumb-item :to="{ path: '/' }"> <i class="el-icon-location"></i>招投标管理</el-breadcrumb-item>
-              <el-breadcrumb-item>采购计划申请</el-breadcrumb-item>
+              <el-breadcrumb-item>我要报名</el-breadcrumb-item>
             </el-breadcrumb>
             </div>
 
           <el-card shadow="never" class="Purchase" style="height:100%;">
-               <el-form ref="form" :model="form" label-width="80px">
-          <el-row>
-              <el-col :span="8">
-                <el-form-item label="经费类型">
-                    <el-select v-model="form.take1">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
-                </el-form-item>
-            </el-col>
-              <el-col :span="8">
-                <el-form-item label="采购方式">
-                    <el-select v-model="form.take2">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
-                </el-form-item>
-            </el-col>
-              <el-col :span="8">
-                <el-form-item label="状态">
-                    <el-select v-model="form.take3">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
-                </el-form-item>
-            </el-col>
-     </el-row>
-   
-        <el-col :span="16">
+               <el-form ref="form" :model="form" label-width="80px" style="
+    padding-top: 16px;
+">
+       <el-row>
+         <el-col :span="18">
              <el-form-item label="时间:">
     
                <el-date-picker
@@ -50,31 +26,18 @@
             </el-date-picker>
             </el-form-item>
          </el-col>
-      
          <el-col :span="6">
             <el-form-item>
                 <el-button type="primary"  >查询</el-button>
                 <el-button type="success">重置</el-button>
             </el-form-item>
-            </el-col>
-            </el-row>
+        </el-col>
+        </el-row>
             </el-form>
-                        
           </el-card>
 
 
       <el-card class="fromlist">
-        <el-row>
-          <el-col :span="24">
-        <div class="button3">
-            <el-button type="primary" @click="takeapply">新增
-              <router-view></router-view>
-            </el-button>
-            <el-button type="danger">删除</el-button>
-            <el-button type="primary">导出列表数据</el-button>
-        </div>
-        </el-col>
-      </el-row>
       <el-row>
         <el-col :span="24">
 
@@ -83,10 +46,6 @@
           :align="center"
           border
           class="fromlist1">
-            <el-table-column
-            type="selection"
-            width="55">
-          </el-table-column>
           <el-table-column
             prop="num"
             label="序号"
@@ -97,21 +56,21 @@
             label="操作"
           >
              <template slot-scope="scope" style="padding: 0 1%;">
-            <a href="#" @click="takecheck" style="color: rgb(30, 136, 229);">查看</a>
-            <a href="#" @click="takerevise" style="color:#009F44;float:right;">修改</a>
+            <a href="#" style="color: rgb(30, 136, 229);">我要报名</a>
+            <!-- <a href="#" @click="takerevise" style="color:#009F44;float:right;">修改</a> -->
           </template>
           </el-table-column>
           <el-table-column
             prop="name"
-            label="采购名称">
+            label="项目编号">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="采购预算">
+            label="项目名称">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="经费类型">
+            label="招标人">
           </el-table-column>
               <el-table-column
             prop="address"
@@ -119,15 +78,11 @@
           </el-table-column>
               <el-table-column
             prop="address"
-            label="采购用途">
+            label="开始时间">
           </el-table-column>
               <el-table-column
             prop="address"
-            label="申请时间">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="状态">
+            label="结束时间">
           </el-table-column>
         </el-table>
         </el-col>
@@ -201,15 +156,15 @@
     }
     },
     methods: {
-      takeapply() {
-        this.$router.push({ path: '/apply'})
-      },
-      takecheck(){
-        this.$router.push({ path: '/check'})
-      },
-      takerevise(){
-         this.$router.push({ path:'/revise'})
-      }
+    //   takeapply() {
+    //     this.$router.push({ path: '/apply'})
+    //   },
+    //   takecheck(){
+    //     this.$router.push({ path: '/check'})
+    //   },
+    //   takerevise(){
+    //      this.$router.push({ path:'/revise'})
+    //   }
     }
   }
 </script>
