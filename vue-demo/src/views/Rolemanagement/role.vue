@@ -83,14 +83,14 @@
       <el-row>
         <el-col :span="24">
       <div class="block">
-          <el-pagination
+        <el-pagination
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page.sync="currentPage3"
-            :page-size="100"
-            layout="prev, pager, next, jumper"
-            :total="1000"
-            :align="right">
+            :current-page="pagenum"
+            :page-sizes="[2, 4, 6, 8]"
+            :page-size="pagesize"
+            layout="total, sizes, prev, pager, next, jumper"
+            :total="total">
           </el-pagination>
         </div>
         </el-col>
@@ -116,21 +116,6 @@
                 num: 3,
                 take: '张三',
                 name: '管理员'
-            },
-            {
-                num: 4,
-                take: '张三',
-                name: '服务器设备采购'
-            },
-            {
-                num: 5,
-                take: '张三',
-                name: '服务器设备采购'
-            },
-            {
-                num: 6,
-                take: '张三',
-                name: '服务器设备采购'
             }
         
           ],
@@ -145,10 +130,24 @@
           
     }
     },
+    // created (){
+    //    this.loadDate ()
+    // },
     methods: {
       addrole() {
         this.$router.push({ path: '/addrole'})
+      },
+    async loadData(){
+      const res = await this.$http.get('sysRole/getAll');
+      console.log(res);
+      // const { data} = res;
+      // if (status === 200) {
+      //   this.list = data;
+      // } else {
+      //   this.$message.error(msg);
+      // }
       }
+
     }
   }
 </script>

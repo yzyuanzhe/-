@@ -7,7 +7,7 @@ MyAxios.install = function (Vue) {
 
   // 创建自定义的axios实例
   const instance = axios.create({
-    baseURL: 'http://localhost:8888/api/private/v1/'
+    baseURL: 'http://192.168.1.160:8088/'
   });
 
   // Add a request interceptor

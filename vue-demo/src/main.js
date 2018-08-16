@@ -9,9 +9,20 @@ import MyAxios from '@/plugins/MyAxios';
 import '@/assets/css/style.css';
 import moment from 'moment';
 import MyBreadcrumb from '@/components/MyBreadcrumb';
+// import Qs from 'qs';
 
 
-Vue.config.productionTip = false;
+// Vue.config.productionTip = false;
+
+// // import axios from 'axios'
+// import VueAxios from 'vue-axios'
+// Vue.use(VueAxios,axios);
+
+//  import qs from 'qs'
+//  axios.defaults.transformRequest = [function (data) {
+//     return qs.stringify(data)
+//  }]
+
 
 // 注册全局组件
 // Vue.component(MyBreadcrumb.name, MyBreadcrumb);
@@ -25,6 +36,9 @@ Vue.config.productionTip = false;
 Vue.use(MyAxios);
 // 注册ElementUI插件
 Vue.use(ElementUI);
+// Vue.use(Qs);
+
+
 
 /* eslint-disable no-new */
 new Vue({
