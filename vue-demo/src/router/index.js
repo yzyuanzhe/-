@@ -61,7 +61,7 @@ export default new Router({
             },
             {
               name:'check',
-              path:'/check',
+              path:'/check/:id',
               component:Check
             },
             {
@@ -71,7 +71,7 @@ export default new Router({
             },
             {
               name:'revise',
-              path:'/revise',
+              path:'/revise/:id',
               component:Revise
             },
             {
@@ -86,7 +86,7 @@ export default new Router({
             }, 
             {
               name: 'takepurchase',
-              path: '/takepurchase',
+              path: '/takepurchase/:id',
               component: TakepurChase
             },
             {//采购计划审批的审批历程
@@ -101,7 +101,7 @@ export default new Router({
             },
             {
               name:'takeproxy',
-              path:'/takeproxy',
+              path:'/takeproxy/:id',
               component:Takeproxy
             },
             {

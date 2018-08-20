@@ -27,8 +27,8 @@
          <el-col :span="8">
            <el-form-item label="中标情况:">
             <el-select v-model="form.region">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
+            <el-option label="未中标" value="shanghai"></el-option>
+            <el-option label="已中标" value="beijing"></el-option>
             </el-select>
         </el-form-item>
         </el-col>

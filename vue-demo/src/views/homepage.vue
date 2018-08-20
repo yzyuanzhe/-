@@ -14,46 +14,60 @@
           <el-row>
               <el-col :span="8">
                 <el-form-item label="经费类型">
-                    <el-select v-model="form.take1">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
+                    <el-select v-model="form.fundKind">
+                    <el-option label="科研经费" value="科研经费"></el-option>
+                    <el-option label="基建经费" value="基建经费"></el-option>
+                    <el-option label="修购经费" value="修购经费"></el-option>
+                    <el-option label="双一流、教育事业经费" value="beijing"></el-option>
+                    
                     </el-select>
                 </el-form-item>
             </el-col>
               <el-col :span="8">
                 <el-form-item label="采购方式">
-                    <el-select v-model="form.take2">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
+                    <el-select v-model="form.purchaseKind">
+                    <el-option label="招标采购" value="招标采购"></el-option>
+                    <el-option label="比选" value="比选"></el-option>
                     </el-select>
                 </el-form-item>
             </el-col>
               <el-col :span="8">
                 <el-form-item label="状态">
-                    <el-select v-model="form.take3">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
+                    <el-select v-model="form.status">
+                    <el-option label="暂存" value="1"></el-option>
+                    <el-option label="待审核" value="2"></el-option>
+                    <el-option label="审核通过" value="3"></el-option>
+                    <el-option label="驳回" value="4"></el-option>
+                    
+                    
                     </el-select>
                 </el-form-item>
             </el-col>
      </el-row>
-   
-        <el-col :span="16">
-             <el-form-item label="时间:">
-    
-               <el-date-picker
-                v-model="form.date1"
-                type="daterange"
-                range-separator="至"
-                start-placeholder="开始日期"
-                end-placeholder="结束日期">
+
+   <el-row>
+        <el-col :span="8">
+        <el-form-item label="开始时间:">
+             <el-date-picker
+              v-model="form.startAt"
+              type="date"
+              placeholder="选择日期">
+            </el-date-picker>
+            </el-form-item>
+         </el-col>
+           <el-col :span="8">
+        <el-form-item label="结束时间:">
+             <el-date-picker
+              v-model="form.endAt"
+              type="date"
+              placeholder="选择日期">
             </el-date-picker>
             </el-form-item>
          </el-col>
       
-         <el-col :span="6">
+         <el-col :span="8">
             <el-form-item>
-                <el-button type="primary"  >查询</el-button>
+                <el-button type="primary" @click="takequery" >查询</el-button>
                 <el-button type="success">重置</el-button>
             </el-form-item>
             </el-col>
@@ -70,7 +84,8 @@
             <el-button type="primary" @click="takeapply">新增
               <router-view></router-view>
             </el-button>
-            <el-button type="danger">删除</el-button>
+            
+             <el-button type="danger" @click="handleDelete">删除</el-button>
             <el-button type="primary">导出列表数据</el-button>
         </div>
         </el-col>
@@ -79,56 +94,59 @@
         <el-col :span="24">
 
         <el-table
-          :data="tableData"
-          :align="center"
-          border
-          class="fromlist1">
-            <el-table-column
-            type="selection"
-            width="55">
-          </el-table-column>
-          <el-table-column
-            prop="num"
-            label="序号"
-        >
-          </el-table-column>
-          <el-table-column
-            prop="take"
-            label="操作"
-          >
-             <template slot-scope="scope" style="padding: 0 1%;">
-            <a href="#" @click="takecheck" style="color: rgb(30, 136, 229);">查看</a>
-            <a href="#" @click="takerevise" style="color:#009F44;float:right;">修改</a>
-          </template>
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="采购名称">
-          </el-table-column>
+              :data="tableData"
+              :align="center"
+              border
+              @selection-change="selsChange"
+              class="fromlist1">
+                <el-table-column
+                type="selection"
+                width="55"
+                >
+
+              </el-table-column>
               <el-table-column
-            prop="address"
-            label="采购预算">
-          </el-table-column>
+                prop="num"
+                label="序号"
+            >
+              </el-table-column>
               <el-table-column
-            prop="address"
-            label="经费类型">
-          </el-table-column>
+                prop="take"
+                label="操作"
+              >
+                <template slot-scope="scope" style="padding: 0 1%;">
+                <a href="#" @click="takecheck(scope.row.id)" style="color: rgb(30, 136, 229);">查看</a>
+                <a href="#" @click="takerevise(scope.row.id)" style="color:#009F44;float:right;">修改</a>
+              </template>
+              </el-table-column>
               <el-table-column
-            prop="address"
-            label="采购方式">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="采购用途">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="申请时间">
-          </el-table-column>
-              <el-table-column
-            prop="address"
-            label="状态">
-          </el-table-column>
+                prop="purchaseName"
+                label="采购名称">
+              </el-table-column>
+                  <el-table-column
+                prop="purchaseBudget"
+                label="采购预算">
+              </el-table-column>
+                  <el-table-column
+                prop="fundKind"
+                label="经费类型">
+              </el-table-column>
+                  <el-table-column
+                prop="purchaseKind"
+                label="采购方式">
+              </el-table-column>
+                  <el-table-column
+                prop="purchaseUse"
+                label="采购用途">
+              </el-table-column>
+                  <el-table-column
+                prop="applyTime"
+                label="申请时间">
+              </el-table-column>
+                  <el-table-column
+                prop="status"
+                label="状态">
+              </el-table-column>
         </el-table>
         </el-col>
       </el-row>
@@ -140,7 +158,8 @@
           <el-pagination
             @size-change="handleSizeChange"
             @current-change="handleCurrentChange"
-            :current-page.sync="currentPage3"
+            :current-page.sync="pagenum"
+            :page-sizes="[100,200,300,400]"
             :page-size="100"
             layout="prev, pager, next, jumper"
             :total="1000"
@@ -156,62 +175,153 @@
      export default {
     data(){
       return {
-          tableData: [{
-            num: 1,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 2,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 3,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 4,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 5,
-            take: '查看',
-            name: '服务器设备采购'
-          },
-          {
-            num: 6,
-            take: '查看',
-            name: '服务器设备采购'
-          }
-        
-          ],
+         
            form: {
-          take1: '',
-          take2: '',
+          fundKind: '',
+          purchaseKind: '',
           delivery: false,
-          take3: '',
-          data1:'',
-          data2:'',
-          name:''
-        }
-          
+          status: '',
+         startAt:'',
+         endAt:''
+        },
+        // 页码
+     pagenum: 1,
+      // 每页条数
+      pagesize: 4,
+      // 总共的数据条数，从服务器获取
+      total: 0,
+
+       tableData: [],   
+       sels: [],//选中显示的值       
+       takeid:'',
+      
     }
     },
     methods: {
+      created() {
+    // 发送请求获取数据
+    // this.loadData();
+  },
+  selsChange(sels){
+ //被选中的行组成数
+        this.sels = sels;
+        //遍历被选中行数所组成的数组
+        for(let element of this.sels){
+        console.log(element.id);
+         this.takeid = element.id;
+        }
+  },
+ async  handleDelete() {
+    let id = this.takeid;
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(async() => {
+           const res = await this.$http.get('purchasePlan/delete',{
+             params:{
+               id:id
+             }
+           });
+           
+           
+         
+        });
+        this.loadData();
+      },
       takeapply() {
         this.$router.push({ path: '/apply'})
       },
-      takecheck(){
-        this.$router.push({ path: '/check'})
+      takecheck(id){//查看
+        this.$router.push({path: `/check/${id}`})
       },
-      takerevise(){
-         this.$router.push({ path:'/revise'})
-      }
-    }
-  }
+      takerevise(id){//编辑按钮
+         this.$router.push({path:`/revise/${id}`});
+        //  this.$router.push({name:'param'  ,params:this.stu})
+         console.log(id);
+        // 
+      },
+
+    //    handleSizeChange(val) {
+    //   // 每页条数改变的时候
+    //   this.pagesize = val;
+    //   this.loadData();
+    //   console.log(`每页 ${val} 条`);
+    // },
+    // handleCurrentChange(val) {
+    //   // 页码改变的时候
+    //   this.page = val;
+    //   this.loadData();
+    //   console.log(`当前页: ${val}`);
+    // },
+      // async loadData (){
+      //   const res =await this.$http.get('purchasePlan/getPage?page=1&rows=3');
+      //   axios
+      //   console.log(res);
+      //   this.tableData =res.data;
+      // if (status === 200) {
+      //   this.$message.success('成功');
+        
+      // } else {
+      //   this.$message.error('失败');
+      // }
+      
+      // }
+    
+    async loadData(){
+     const res =await this.$http.get('purchasePlan/getPage', {
+            params: {
+            page:1,
+            rows:10,
+           
+            }
+            })
+            this.tableData = res.data.list;
+            this.tableData.id=res.data.list.id;
+            
+            // console.log(res.data.listSes);
+            // .then(function (response) {
+            //   console.log(22,response.data.list);
+
+            //  this.tableData =response.data.list;
+            //  console.log(tableData)
+            //  console.log(11,this.id)
+            // })
+            // .catch(function (error) {
+            // console.log(error);
+            // });
+      },
+    async takequery(){
+     let form = this.form;
+     let fundKind =this.form.fundKind;
+     let purchaseKind =this.form.fundKind;
+     let  status =this.form.status;
+     let startAt =this.form.startAt;
+     let  endAt =this.form.endAt;
+     
+     const res =await this.$http.get('purchasePlan/getPage', {
+            params: {
+            page:1,
+            rows:10, 
+            fundKind,
+            purchaseKind,
+            status,
+            startAt,
+            endAt
+            }
+            })
+            // console.log(res);
+            this.tableData = res.data.list;
+  },
+  
+
+
+    },
+    mounted(){
+          this.loadData();
+    },
+   
+     }
 </script>
 <style>
 

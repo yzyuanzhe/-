@@ -15,26 +15,35 @@
           <el-row>
               <el-col :span="8">
                 <el-form-item label="采购类型">
-                    <el-select v-model="form.take1">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
-                </el-form-item>
+                          <el-select v-model="form.take1">
+                          <el-option label="货物" value="shanghai"></el-option>
+                          <el-option label="服务" value="beijing"></el-option>
+                          <el-option label="工程" value="beijing"></el-option>
+                          </el-select>
+                      </el-form-item>
             </el-col>
               <el-col :span="8">
-                <el-form-item label="经费类型">
-                    <el-select v-model="form.take2">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
-                </el-form-item>
+               <el-form-item label="经费类型">
+                          <el-select v-model="form.take2">
+                          <el-option label="教学-货物与服务" value="shanghai"></el-option>
+                          <el-option label="科研-货物与服务" value="beijing"></el-option>
+                          <el-option label="保障运行-货物与服务" value="beijing"></el-option>
+                          <el-option label="部门预算-工程" value="beijing"></el-option>
+                          <el-option label="科研-工程" value="beijing"></el-option>
+                          <el-option label="修购-工程" value="beijing"></el-option>
+                          <el-option label="基建-工程" value="beijing"></el-option>
+                          <el-option label="985工程-工程" value="beijing"></el-option>
+                          <el-option label="211工程-工程" value="beijing"></el-option>
+                          <el-option label="其他经费" value="beijing"></el-option>        
+                          </el-select>
+                      </el-form-item>
             </el-col>
               <el-col :span="8">
                 <el-form-item label="采购方式">
                     <el-select v-model="form.take3">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
-                    </el-select>
+                          <el-option label="公开招标" value="shanghai"></el-option>
+                          <el-option label="单一性来源" value="beijing"></el-option>
+                          </el-select>
                 </el-form-item>
             </el-col>
      </el-row>
@@ -42,8 +51,8 @@
            <el-col :span="8">
                   <el-form-item label="状态">
                     <el-select v-model="form.take4">
-                    <el-option label="类型一" value="shanghai"></el-option>
-                    <el-option label="类型二" value="beijing"></el-option>
+                    <el-option label="待申报" value="shanghai"></el-option>
+                    <el-option label="已申报" value="beijing"></el-option>
                     </el-select>
                 </el-form-item>
            </el-col>

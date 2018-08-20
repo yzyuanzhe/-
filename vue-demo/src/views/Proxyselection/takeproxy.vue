@@ -20,6 +20,7 @@
               </el-row>
           <!-- 确定项目内容及名单 -->
               <el-card shadow="never" class="Purchase" style="height:100%;margin-top:20px;">
+                  <!-- <el-button type="danger" @click="loadData"> 测试按钮</el-button> -->
               <el-row style="
     margin-bottom: 20px;
 ">
@@ -37,12 +38,12 @@
             <el-row>
               <el-col :span="8">
                   <el-form-item label="采购名称:">
-                      <el-input v-model="form1.name" style="width: 49%;"></el-input>
+                      <el-input v-model="form1.purchaseName" style="width: 49%;"></el-input>
                   </el-form-item>
               </el-col>
               <el-col :span="8">
                   <el-form-item label="抽取家数:">
-                      <el-input v-model="form1.num" style="width: 49%;"></el-input>
+                      <el-input v-model="form1.num" placeholder="2" style="width: 49%;"></el-input>
                   </el-form-item>
               </el-col>
             
@@ -53,7 +54,7 @@
           </el-card>
 
           <!-- 抽选范围 -->
-               <el-card shadow="never" class="Purchase" style="height:100%;;margin-top:20px;">
+               <!-- <el-card shadow="never" class="Purchase" style="height:100%;;margin-top:20px;">
               <el-row style="
     margin-bottom: 20px;
 ">
@@ -90,7 +91,7 @@
                 
           </el-row>
                   </el-form>
-     </el-card>
+     </el-card> -->
 
       
       
@@ -288,8 +289,7 @@
       return {
            form1: {
           delivery: false,
-          name:'',
-          num:''
+          purchaseName:'',
         },
         form2:
         {
@@ -312,8 +312,30 @@
         }
         ]   
          }
-    }
+    },
+       created() {
+      this.loadData()
+    },
+    methods: {
+      async loadData() {
+                var xb = this.$route.params.id;
+                // console.log(xb);
+                const res =await this.$http.get('purchasePlan/getById', {
+                params: {
+                id:xb
+                }
+                })
+
+            console.log(res)
+            // this.form = res.data;
+            this.form1.purchaseName = res.data.purchaseName;
+            // this.auditAdvice=res.data.auditAdvice;
+            // this.purchasePlanId=xb;
+            // console.log(purchasePlanId)
+           
+       }, 
   }
+ }
 </script>
 <style>
 .fl {
